@@ -4,10 +4,15 @@ import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/inertia-react';
+import {firstLetterCapitalize} from '../Helpers/Mask';
 
-export default function Authenticated({ auth, header, children }) {
+export default function Authenticated({ auth, header, action, children }) {
+    const menu = [
+        'tribes',
+        'regions'
+    ]
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-
+    
     return (
         <div className="min-h-screen bg-gray-100">
             <nav className="bg-white border-b border-gray-100">
@@ -24,6 +29,11 @@ export default function Authenticated({ auth, header, children }) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
+                                {menu.map((title, key) => 
+                                    <NavLink key={key} href={route(title+'.index')} active={route().current(title + '.' + (action ? action : 'index'))}>
+                                    {firstLetterCapitalize(title)}
+                                    </NavLink>                                    
+                                )}                                
                             </div>
                         </div>
 
@@ -94,6 +104,11 @@ export default function Authenticated({ auth, header, children }) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
+                        {menu.map((title, key) => 
+                            <ResponsiveNavLink key={key} href={route(title+'.index')} active={route().current(title+'.index')}>
+                                {title.charAt(0).toUpperCase() + title.slice(1)}
+                            </ResponsiveNavLink>
+                        )}   
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200">

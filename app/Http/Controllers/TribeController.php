@@ -82,7 +82,7 @@ class TribeController extends Controller
      * @param  \App\Models\Tribe  $tribe
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tribe $tribe)
+    public function update(StoreTribeRequest $request, Tribe $tribe)
     {
         $tribe->update($request->validated());
         return redirect()->route('tribes.index');
