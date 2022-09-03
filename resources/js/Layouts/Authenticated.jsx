@@ -9,7 +9,8 @@ import {firstLetterCapitalize} from '../Helpers/Mask';
 export default function Authenticated({ auth, header, action, children }) {
     const menu = [
         'tribes',
-        'regions'
+        'regions',
+        'raritys'
     ]
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     

@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\TokenController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\TribeController;
+use App\Http\Controllers\RarityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::resource('tokens', TokenController::class);
     Route::resource('regions', RegionController::class);
     Route::resource('tribes', TribeController::class);
-    
+    Route::resource('raritys', RarityController::class);
 });
 
 

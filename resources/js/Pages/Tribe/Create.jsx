@@ -11,7 +11,7 @@ const Create = (props) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        post(route("tribes.store"));
+        post(route(model+"s.store"));
     }
 
     return (

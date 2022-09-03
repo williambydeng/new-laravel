@@ -4,7 +4,7 @@ import Body from '@/Layouts/Body';
 import Form from './Form';
 
 const Create = (props) => {
-    const model = "region";
+    const model = "rarity";
     const { data, setData, errors, post } = useForm({
         name: "",
     });
