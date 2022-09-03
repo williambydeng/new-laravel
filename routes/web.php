@@ -8,6 +8,7 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\TribeController;
 use App\Http\Controllers\RarityController;
 use App\Http\Controllers\ChampionController;
+use App\Http\Controllers\TypeController;
 
 
 /*
@@ -41,7 +42,7 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::resource('tribes', TribeController::class);
     Route::resource('raritys', RarityController::class);
     Route::resource('champions', ChampionController::class);
-
+    Route::resource('types', TypeController::class);
 });
 
 
