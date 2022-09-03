@@ -6,10 +6,8 @@ import Form from './Form';
 
 const Edit = (props) => {
     const model = "champion";
-    const { champion } = usePage().props;
-    const { data, setData, put, errors } = useForm({
-        name: champion.name || "",
-    });
+    const { champion, raritys, regions, tribes } = usePage().props;
+    const { data, setData, put, errors } = useForm({...champion});
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -23,7 +21,16 @@ const Edit = (props) => {
 
     return (
         <Body props={props} model={model} action="edit">                
-            <Form data={data} handleSubmit={handleSubmit} setData={setData} errors={errors} destroy={destroy}/>                
+            <Form 
+                data={data} 
+                handleSubmit={handleSubmit} 
+                setData={setData} 
+                errors={errors} 
+                destroy={destroy}
+                raritys={raritys}
+                regions={regions}
+                tribes={tribes}
+            />                
         </Body>
     );
 };

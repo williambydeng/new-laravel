@@ -7,7 +7,6 @@ import Cell from '@/Layouts/List/Cell';
 
 const Index = (props) => {
     const { champions } = usePage().props;
-    console.log(champions)
     const model = 'champion';
     return (
         <Body props={props} model={model}>

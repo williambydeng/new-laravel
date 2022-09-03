@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Champion;
+use App\Models\Rarity;
+use App\Models\Region;
+use App\Models\Tribe;
+
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Requests\StoreChampionRequest;
 use Illuminate\Http\Request;
@@ -30,7 +35,14 @@ class ChampionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Champion/Create');
+        $raritys = Rarity::orderBy('id', 'asc')->get();
+        $regions = Region::orderBy('id', 'asc')->get();
+        $tribes = Tribe::orderBy('id', 'asc')->get();
+        return Inertia::render('Champion/Create', [
+            'raritys' => $raritys,
+            'regions' => $regions,            
+            'tribes' => $tribes,
+        ]);
     }
 
     /**
@@ -67,11 +79,14 @@ class ChampionController extends Controller
      */
     public function edit(Champion $champion)
     {
+        $raritys = Rarity::orderBy('id', 'asc')->get();
+        $regions = Region::orderBy('id', 'asc')->get();
+        $tribes = Tribe::orderBy('id', 'asc')->get();
         return Inertia::render('Champion/Edit', [
-            'champion' => [
-                'id' => $champion->id,
-                'name' => $champion->name,
-            ]
+            'champion' => $champion,
+            'raritys' => $raritys,
+            'regions' => $regions,            
+            'tribes' => $tribes,
         ]);
     }
 
