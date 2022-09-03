@@ -5,7 +5,6 @@ import { InertiaLink } from "@inertiajs/inertia-react";
 import {firstLetterCapitalize} from '@/Helpers/Mask';
 
 export default function Body({props, model, action = null, children}) {
-    console.log(model)
     return (
         <Authenticated
             auth={props.auth}

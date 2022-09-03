@@ -10,7 +10,8 @@ export default function Authenticated({ auth, header, action, children }) {
     const menu = [
         'tribes',
         'regions',
-        'raritys'
+        'raritys',
+        'champions'
     ]
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
     

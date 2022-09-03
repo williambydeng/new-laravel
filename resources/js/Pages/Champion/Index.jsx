@@ -6,15 +6,19 @@ import Cell from '@/Layouts/List/Cell';
 
 
 const Index = (props) => {
-    const { regions } = usePage().props;
-    const model = 'region';
+    const { champions } = usePage().props;
+    console.log(champions)
+    const model = 'champion';
     return (
         <Body props={props} model={model}>
-            <List model={model} head={['name']} size={regions.length} >   
-                    {regions.map(({ id, name }) => (
+            <List model={model} head={['name', 'rarity', 'tribe', 'region']} size={champions.length} >   
+                    {champions.map(({ id, name, rarity, tribe, region }) => (
                         <tr key={id} >                            
                             <Cell model={model} id={id} value={id} />
                             <Cell model={model} id={id} value={name} />
+                            <Cell model={model} id={id} value={rarity.name} />
+                            <Cell model={model} id={id} value={tribe.name} />
+                            <Cell model={model} id={id} value={region.name} />
                             <Cell model={model} id={id} value='Edit' variant='button'/>
                         </tr>
                     ))}

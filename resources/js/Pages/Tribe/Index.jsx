@@ -10,7 +10,7 @@ const Index = (props) => {
     const model = 'tribe';
     return (
         <Body props={props} model={model}>
-            <List model={model} columns={['name']} size={tribes.length} >   
+            <List model={model} head={['name']} size={tribes.length} >   
                     {tribes.map(({ id, name }) => (
                         <tr key={id} >                            
                             <Cell model={model} id={id} value={id} />

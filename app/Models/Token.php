@@ -9,16 +9,5 @@ class Token extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name', 
-        'specie', 
-        'tribeId',
-        'rarityId',
-        'regionId',
-        'image',
-        'idealPressure',
-        'brawl',
-        'agility',
-        'cunning'
-    ];
+    protected $fillable = ['name', 'championId', 'typeId'];
 }

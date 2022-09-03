@@ -1,4 +1,5 @@
 import React from "react";
+import {firstLetterCapitalize} from '@/Helpers/Mask';
 
 const Head = ({ columns }) => {
  
@@ -7,7 +8,7 @@ const Head = ({ columns }) => {
             <tr className="font-bold text-left">                
                 <th className="px-6 pt-5 pb-4">#</th>
                 {columns.map((name, key) =>
-                    <th key={key} className="px-6 pt-5 pb-4">{name}</th>
+                    <th key={key} className="px-6 pt-5 pb-4">{firstLetterCapitalize(name)}</th>
                 )}                
                 <th className="px-6 pt-5 pb-4">Action</th>
             </tr>

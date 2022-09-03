@@ -7,6 +7,8 @@ use App\Http\Controllers\TokenController;
 use App\Http\Controllers\RegionController;
 use App\Http\Controllers\TribeController;
 use App\Http\Controllers\RarityController;
+use App\Http\Controllers\ChampionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::resource('regions', RegionController::class);
     Route::resource('tribes', TribeController::class);
     Route::resource('raritys', RarityController::class);
+    Route::resource('champions', ChampionController::class);
+
 });
 
 

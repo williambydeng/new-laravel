@@ -4,7 +4,7 @@ import {firstLetterCapitalize} from '@/Helpers/Mask';
 import Head from '@/Layouts/List/Head';
 
 
-const Body = ({children, size, model }) => {
+const Body = ({children, size, model, head }) => {
        
     return (
         <>            
@@ -19,7 +19,7 @@ const Body = ({children, size, model }) => {
 
             <div className="overflow-x-auto bg-white rounded shadow">                
                 <table className="w-full whitespace-nowrap">
-                    <Head columns={['name']} />
+                    <Head columns={head} />
                     <tbody>
                         {children}                
                         {size === 0 && (

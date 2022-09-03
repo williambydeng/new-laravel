@@ -7,11 +7,10 @@ import Cell from '@/Layouts/List/Cell';
 
 const Index = (props) => {
     const { raritys } = usePage().props;
-    console.log(raritys)
     const model = 'rarity';
     return (
         <Body props={props} model={model}>
-            <List model={model} columns={['name']} size={raritys.length} >   
+            <List model={model} head={['name']} size={raritys.length} >   
                     {raritys.map(({ id, name }) => (
                         <tr key={id} >                            
                             <Cell model={model} id={id} value={id} />
