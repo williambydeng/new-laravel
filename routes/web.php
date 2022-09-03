@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\TokenController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\TribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,6 @@ Route::get('/dashboard', function () {
 
 Route::resource('tokens', TokenController::class);
 Route::resource('regions', RegionController::class);
+Route::resource('tribes', TribeController::class);
 
 require __DIR__.'/auth.php';

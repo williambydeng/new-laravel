@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Region;
+use App\Models\Tribe;
 use Illuminate\Support\Facades\Route;
-use App\Http\Requests\StoreRegionRequest;
+use App\Http\Requests\StoreTribeRequest;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
-class RegionController extends Controller
+class TribeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,9 +17,9 @@ class RegionController extends Controller
      */
     public function index()
     {
-        $regions = Region::latest()->get();
-        return Inertia::render('Region/Index', [
-            'regions' => $regions
+        $tribes = Tribe::latest()->get();
+        return Inertia::render('Tribe/Index', [
+            'tribes' => $tribes
         ]);
     }
 
@@ -30,7 +30,7 @@ class RegionController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Region/Create');
+        return Inertia::render('Tribe/Create');
     }
 
     /**
@@ -39,22 +39,22 @@ class RegionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreRegionRequest $request)
+    public function store(StoreTribeRequest $request)
     {
-        Region::create(
+        Tribe::create(
             $request->validated()
         );
 
-        return redirect()->route('regions.index');
+        return redirect()->route('tribes.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Region  $region
+     * @param  \App\Models\Tribe  $tribe
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Tribe $tribe)
     {
         //
     }
@@ -62,15 +62,15 @@ class RegionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Region  $region
+     * @param  \App\Models\Tribe  $tribe
      * @return \Illuminate\Http\Response
      */
-    public function edit(Region $region)
+    public function edit(Tribe $tribe)
     {
-        return Inertia::render('Region/Edit', [
-            'region' => [
-                'id' => $region->id,
-                'name' => $region->name,
+        return Inertia::render('Tribe/Edit', [
+            'tribe' => [
+                'id' => $tribe->id,
+                'name' => $tribe->name,
             ]
         ]);
     }
@@ -79,24 +79,24 @@ class RegionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Region  $region
+     * @param  \App\Models\Tribe  $tribe
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreRegionRequest $request, Region $region)
+    public function update(Request $request, Tribe $tribe)
     {
-        $region->update($request->validated());
-        return redirect()->route('regions.index');
+        $tribe->update($request->validated());
+        return redirect()->route('tribes.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Region  $region
+     * @param  \App\Models\Tribe  $tribe
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Region $region)
+    public function destroy(Tribe $tribe)
     {
-        $region->delete();
-        return redirect()->route('regions.index');
+        $tribe->delete();
+        return redirect()->route('tribes.index');
     }
 }
